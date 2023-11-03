@@ -67,7 +67,7 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ BYTE_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ STAT_AC : 0|1@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 499 ASC3: 8 Vector__XXX
+BO_ 499 ASC3: 8 ASC
  SG_ ASC3_BYTE7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BAS_DATEN : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ AY_REF : 38|10@1+ (1,0) [0|0] "" Vector__XXX
@@ -136,6 +136,7 @@ BA_DEF_DEF_  "RequestMessage" "No";
 BA_DEF_DEF_  "GenMsgSendType" "Zyklisch ";
 BA_DEF_DEF_  "GenMsgCycleTime" 0;
 BA_DEF_DEF_  "BusType" "CAN";
+BA_ "GenMsgCycleTime" BO_ 499 10;
 BA_ "GenMsgCycleTime" BO_ 496 10;
 BA_ "GenMsgCycleTime" BO_ 339 10;
 BA_ "GenSigStartValue" SG_ 339 V1 0;
