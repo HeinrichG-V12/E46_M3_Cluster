@@ -1,0 +1,96 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  msTimer smg2Timer;
+  msTimer generalTimer;
+  int smg2_counter = 0;
+  message SMG2 smg2_msg;
+  byte tmp1 = 0, tmp2 = 0, tmp3 = 0, tmp4 = 0, tmp5 = 0;
+  byte gear = 0;
+  byte drivelogic = 0;
+  byte geal = 0;
+  byte gear_of_death = 0;
+}
+
+on timer generalTimer {
+  gear++;
+  drivelogic++;
+  geal++;
+  
+  if (gear == 0x0b) {
+    gear = 0;
+  } 
+  
+  if (drivelogic == 0x0e) {
+    drivelogic = 0;
+  } 
+  
+  if (geal == 0x0d) {
+    geal = 0;
+  } 
+  
+  if (gear_of_death == 0) {
+    gear_of_death = 1;
+  }else {
+    gear_of_death = 0;
+  }
+}
+
+on timer smg2Timer {
+  smg2_msg.dlc = 8;
+  smg2_msg.DESIRED_GEAR = 0x00;
+  smg2_msg.LV_GS = 0;
+  smg2_msg.GEAR_SEL_AUTO = 0;
+  smg2_msg.STATE_CLUTCH = 1;
+  
+  // smg2_msg.GEAR_INFO = gear;
+  // smg2_msg.GEAL_SEL = geal;
+  // smg2_msg.PRG_INF_ANZ = drivelogic;
+  
+  smg2_msg.GEAR_INFO = 0x06;
+  smg2_msg.GEAL_SEL = 0x01;
+  smg2_msg.PRG_INF_ANZ = 0x06;
+    
+  smg2_msg.LNG_ACC = 0;
+  //smg2_msg.L_GS = gear_of_death;
+  smg2_msg.L_GS = 0;
+  smg2_msg.Byte5_Bit2 = 1;
+  smg2_msg.DT_REINF = 0x392;
+  smg2_msg.TQ_CLU = 0xf3;
+
+  smg2_msg.BYTE(3) = calculateChecksum (smg2_msg.GEAR_INFO, smg2_counter);  
+  
+  output(smg2_msg);  
+  
+  // increment counter.
+  smg2_counter++;
+  if (smg2_counter == 16)
+    smg2_counter = 0;
+}
+
+byte calculateChecksum(byte l_gear_info, byte l_alive_counter)
+{
+  tmp1 = (l_alive_counter ^ l_gear_info);
+  tmp2 = ~(tmp1);
+  tmp3 = (tmp2 & 0x0f);
+  tmp4 = (tmp3 << 4);
+  
+  // here says www.ms4x.net: CHKSM_GEAR_INFO = Or CHKSM_GEAR_INFO , GEAR_INFO
+  // and it is wrong, because we don't have the counter value in Byte3.
+  // the correct value is: 
+  tmp5 = (tmp4 | l_alive_counter);
+
+  return tmp5;
+}
+
+on start
+{
+  setTimerCyclic(smg2Timer, 10);
+  setTimerCyclic(generalTimer, 1000);
+}
+

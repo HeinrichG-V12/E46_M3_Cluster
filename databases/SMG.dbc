@@ -1,0 +1,105 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: SMG2
+
+
+BO_ 1087 SMG2: 8 SMG2
+ SG_ ALIVE_COUNTER : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ CHKSM_GEAR_INFO : 28|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LNG_ACC : 32|8@1+ (0.1,-12.7) [-12.7|12.8] "m/s²" Vector__XXX
+ SG_ TQ_CLU : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DT_REINF : 46|10@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Gong : 45|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte5_Bit2 : 42|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ TC_ACT : 43|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ L_GS : 40|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PRG_INF_ANZ : 20|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ GEAL_SEL : 16|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ GEAR_INFO : 8|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STATE_CLUTCH : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ GEAR_SEL_AUTO : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LV_GS : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DESIRED_GEAR : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+
+
+
+CM_ BO_ 1087 "The SMG2 CAN message for the E46 chassis CAN is sent from the MSS54 ECU instead of the TCU.
+
+MSS54 has a secondary CAN bus that is completely seperated from the rest of the powertrain and acts as a gateway for the SMG2 unit. ";
+CM_ SG_ 1087 CHKSM_GEAR_INFO "Checksum for current gear shown in cluster display
+calculated from ALIVE_COUNTER and GEAR_INFO
+";
+CM_ SG_ 1087 LNG_ACC "Longitudial Acceleration";
+CM_ SG_ 1087 TQ_CLU "Torque On Clutch";
+CM_ SG_ 1087 DT_REINF "Torque Factor On Wheels";
+CM_ SG_ 1087 TC_ACT "Traction Control Intervention";
+CM_ SG_ 1087 L_GS "SMG Error State";
+CM_ SG_ 1087 PRG_INF_ANZ "Drive Logic Speed Indicator";
+CM_ SG_ 1087 GEAR_INFO "Current Gear Display Information";
+CM_ SG_ 1087 STATE_CLUTCH "State Converter Clutch";
+CM_ SG_ 1087 GEAR_SEL_AUTO "Gear Selector Auto Position";
+CM_ SG_ 1087 LV_GS "Gear Shift Active";
+CM_ SG_ 1087 DESIRED_GEAR "Desired Gear After Shift";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 1000000;
+BA_DEF_ SG_  "GenSigStartValue" INT 0 1000000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "CANoeJitterMax" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMin" INT 0 0;
+BA_DEF_ BU_  "CANoeDrift" INT 0 0;
+BA_DEF_ BU_  "CANoeStartDelay" INT 0 0;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "CANoeJitterMax" 0;
+BA_DEF_DEF_  "CANoeJitterMin" 0;
+BA_DEF_DEF_  "CANoeDrift" 0;
+BA_DEF_DEF_  "CANoeStartDelay" 0;
+BA_ "GenSigStartValue" SG_ 1087 LNG_ACC 127;
+BA_ "GenSigStartValue" SG_ 1087 Byte5_Bit2 1;
+VAL_ 1087 TC_ACT 1 "yes" 0 "no" ;
+VAL_ 1087 L_GS 1 "Error Active (Gear Of Death)" 0 "no error" ;
+VAL_ 1087 PRG_INF_ANZ 15 "unused" 14 "unused" 13 "Extended Frame and Speed 6" 12 "Standard Frame and Speed 6" 11 "Extended Frame and Speed 5" 10 "Standard Frame and Speed 5" 9 "Extended Frame and Speed 4" 8 "Standard Frame and Speed 4" 7 "Extended Frame and Speed 3" 6 "Standard Frame and Speed 3" 5 "Extended Frame and Speed 2" 4 "Standard Frame and Speed 2" 3 "Extended Frame and Speed 1" 2 "Standard Frame and Speed 1" 1 "DSC Off Frame Extension Only" 0 "Drive Logic Indicator Hidden" ;
+VAL_ 1087 GEAL_SEL 15 "Display Segment Test" 14 "not used" 13 "not used" 12 "A" 11 "+/-" 10 "-" 9 "+" 8 "S+/-" 7 "S-" 6 "S+" 5 "A+/-" 4 "A-" 3 "A+" 2 "R" 1 "0" 0 "Display off" ;
+VAL_ 1087 GEAR_INFO 10 "6th Gear" 9 "5th Gear" 8 "NA" 7 "Reverse" 6 "Neutral" 5 "Auto / D" 4 "4th Gear" 3 "3rd Gear" 2 "2nd Gear" 1 "1st Gear" 0 "Clear Screen" ;
+VAL_ 1087 STATE_CLUTCH 3 "closing" 2 "opening" 1 "closed" 0 "opened" ;
+VAL_ 1087 GEAR_SEL_AUTO 1 "yes" 0 "no" ;
+VAL_ 1087 LV_GS 1 "yes" 0 "no" ;
+VAL_ 1087 DESIRED_GEAR 7 "Reverse" 6 "6th Gear" 5 "5th Gear" 4 "4th Gear" 3 "3rd Gear" 2 "2nd Gear" 1 "1st Gear" 0 "Neutral" ;
+

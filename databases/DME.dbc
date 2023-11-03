@@ -1,0 +1,178 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: DME
+VAL_TABLE_ Vt_STAT_OIL_PR_LIGHT 1 "on" 0 "off" ;
+VAL_TABLE_ Vt_STAT_CHECK_GAS_CAP_LIGHT 1 "on" 0 "off" ;
+VAL_TABLE_ Vt_STAT_EML_LIGHT 1 "on" 0 "off" ;
+VAL_TABLE_ Vt_STAT_CC_LIGHT 1 "on" 0 "off" ;
+VAL_TABLE_ Vt_STAT_CHECK_ENG_LIGHT 1 "on" 0 "off" ;
+VAL_TABLE_ Vt_STAT_RPM_WARN_FIELD 7 "4000" 6 "4500" 5 "5000" 4 "5500" 3 "6000" 2 "6500" 1 "7000" 0 "7500" ;
+VAL_TABLE_ Vt_S_KUP 1 "Kupplung betätigt" 0 "Kupplung Ruhestellung" ;
+VAL_TABLE_ Vt_Q_ASC 1 "ASC-Botschaft i.O." 0 "Fehler in ASC-Botschaft" ;
+VAL_TABLE_ Vt_S_KL15 1 "Kl.15 ein" 0 "aus, Selbsthaltephase" ;
+VAL_TABLE_ Vt_S_MDASC 1 "ASC-Schnittstelle mit ALIVE-Signal" 0 "ASC-Schnittstelle ohne ALIVE-Signal" ;
+VAL_TABLE_ Vt_S_KATH2 1 "Kat-Heizung Bank 2 ein" 0 "Kat-Heizung Bank 2 aus" ;
+VAL_TABLE_ Vt_S_KATH1 1 "Kat-Heizung Bank 1 ein" 0 "Kat-Heizung Bank 1 aus" ;
+VAL_TABLE_ Vt_S_KD 1 "Kickdown erkannt" 0 "kein Kickdown oder FFP Fehler erkannt" ;
+VAL_TABLE_ Vt_F_BS 1 "Fehler erkannt" 0 "fehlerfrei und i.O." ;
+VAL_TABLE_ Vt_S_BS 1 "Bremse betätigt" 0 "Bremse Ruhestellung" ;
+VAL_TABLE_ Vt_S_NIV_LL 1 "LL-Drehzahl < Schwelle" 0 "LL-Drehzahl > Schwelle" ;
+VAL_TABLE_ Vt_BED_FGR 7 "error occured" 6 "not used" 5 "not used" 4 "off" 3 "reset" 2 "set / retard" 1 "set / accelerate" 0 "no operation" ;
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ BYTE_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BYTE_5 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BYTE_4 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BYTE_3 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BYTE_2 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BYTE_1 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BYTE_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_AC : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1552 VIN: 8 Vector__XXX
+ SG_ VIN_BYTE_7 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VIN_BYTE_6 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VIN_BYTE_5 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VIN_BYTE_4 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VIN_BYTE_3 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VIN_BYTE_2 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VIN_BYTE_1 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 824 DME3: 8 DME
+ SG_ STAT_SPORT_BTN : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1349 DME4: 8 DME
+ SG_ BYTE_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_OIL_PR_LIGHT : 44|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_OIL_LEVEL : 48|8@1+ (0.1,-158) [0|0] "L" Vector__XXX
+ SG_ STAT_BATTERY_CHARGE : 40|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ T_OIL_CAN : 32|8@1+ (1,-48) [-48|207] "°C" Vector__XXX
+ SG_ STAT_RPM_WARN_FIELD : 28|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_OVERHEAT_LIGHT : 27|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_OIL_LEVEL_WARN : 25|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_OIL_LEVEL_ERR : 26|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_OIL_LEVEL_ERR_S62 : 24|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ F_CO : 8|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_CC_LIGHT : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_EML_LIGHT : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_CHECK_GAS_CAP_LIGHT : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ STAT_CHECK_ENG_LIGHT : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 809 DME2: 8 DME
+ SG_ S_SHIFTLOCK : 54|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ B_FGR : 51|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ S_KD : 50|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ S_BS : 48|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ F_BS : 49|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ W_FPDK : 40|8@1+ (0.390625,0) [0|99.2] "%" Vector__XXX
+ SG_ S_NIV_LL : 25|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ S_KUP : 24|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Q_ACC_DME : 26|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BED_FGR : 29|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ P_LUFT : 16|8@1+ (2,598) [600|1106] "hPa" Vector__XXX
+ SG_ T_MOT : 8|8@1+ (0.75,-48) [-48|143.25] "°C" Vector__XXX
+ SG_ MUL_INFO : 0|6@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MUL_COD : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 790 DME1: 8 DME
+ SG_ STAT_MD_E : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ S_MDASC : 50|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ S_KL15 : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ S_KATH2 : 49|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ S_KATH1 : 48|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Q_ASC : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ N_MOT : 16|16@1+ (0.15625,0) [0|10240] "1/min" Vector__XXX
+ SG_ MD_REIB : 32|8@1+ (0.39,0) [0|99.6] "%" Vector__XXX
+ SG_ MD_IND_NE : 8|8@1+ (0.39,0) [0|99.6] "%" Vector__XXX
+ SG_ MD_IND_LM : 56|8@1+ (0.39,0) [0|99.6] "%" Vector__XXX
+ SG_ MD_IND : 40|8@1+ (0.39,0) [0|99.6] "%" Vector__XXX
+ SG_ F_TL_MES : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ F_N_MOT : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+
+
+
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ SG_ 3221225472 STAT_AC "Status Klima";
+CM_ BO_ 824 "Nur Alpina";
+CM_ SG_ 1349 STAT_OIL_LEVEL "nur MSS54HP";
+CM_ SG_ 1349 STAT_BATTERY_CHARGE "Alpina Roadster Only";
+CM_ SG_ 1349 STAT_OVERHEAT_LIGHT "Status Überhitzungsleute, der rote Leuchte bei der Motortemperaturanzeige";
+CM_ SG_ 1349 STAT_OIL_LEVEL_WARN "Status ÖllevelWarnung Leuchte, die gelbe Kanne";
+CM_ SG_ 1349 STAT_OIL_LEVEL_ERR "Status Öllevel, keine Funktion im M3";
+CM_ SG_ 1349 STAT_OIL_LEVEL_ERR_S62 "Ölstand beim S62, Beim M3 uninteressant";
+CM_ SG_ 1349 F_CO "Benzinverbrauch";
+CM_ SG_ 1349 STAT_CC_LIGHT "Status Cruise Control Leuchte, der grüne Tacho";
+CM_ SG_ 1349 STAT_EML_LIGHT "Status EML Leuchte";
+CM_ SG_ 1349 STAT_CHECK_GAS_CAP_LIGHT "Check Gas Cap light";
+CM_ SG_ 1349 STAT_CHECK_ENG_LIGHT "Status CheckEngine Leuchte";
+CM_ SG_ 809 T_MOT "Motortemperatur";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 1024;
+BA_DEF_ BO_  "RequestMessage" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Zyklisch ","Ereignisgesteuert ","dummy ","ZyklischImmer";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 1000000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "RequestMessage" "No";
+BA_DEF_DEF_  "GenMsgSendType" "Zyklisch ";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_ "GenMsgSendType" BO_ 1552 1;
+BA_ "RequestMessage" BO_ 1552 1;
+BA_ "GenMsgCycleTime" BO_ 824 1000;
+BA_ "GenMsgCycleTime" BO_ 1349 10;
+BA_ "GenMsgCycleTime" BO_ 809 10;
+BA_ "GenMsgCycleTime" BO_ 790 10;
+BA_ "GenSigStartValue" SG_ 1349 STAT_RPM_WARN_FIELD 7;
+BA_ "GenSigStartValue" SG_ 809 P_LUFT 195;
+BA_ "GenSigStartValue" SG_ 790 Q_ASC 1;
+VAL_ 1349 STAT_RPM_WARN_FIELD 7 "4000" 6 "4500" 5 "5000" 4 "5500" 3 "6000" 2 "6500" 1 "7000" 0 "7500" ;
+VAL_ 1349 STAT_CC_LIGHT 1 "on" 0 "off" ;
+VAL_ 1349 STAT_EML_LIGHT 1 "on" 0 "off" ;
+VAL_ 1349 STAT_CHECK_GAS_CAP_LIGHT 1 "on" 0 "off" ;
+VAL_ 1349 STAT_CHECK_ENG_LIGHT 1 "on" 0 "off" ;
+VAL_ 809 S_KD 1 "Kickdown erkannt" 0 "kein Kickdown oder FFP Fehler erkannt" ;
+VAL_ 809 S_BS 1 "Bremse betätigt" 0 "Bremse Ruhestellung" ;
+VAL_ 809 F_BS 1 "Fehler erkannt" 0 "fehlerfrei und i.O." ;
+VAL_ 809 S_NIV_LL 1 "LL-Drehzahl < Schwelle" 0 "LL-Drehzahl > Schwelle" ;
+VAL_ 809 S_KUP 1 "Kupplung betätigt" 0 "Kupplung Ruhestellung" ;
+VAL_ 809 BED_FGR 7 "error occured" 6 "not used" 5 "not used" 4 "off" 3 "reset" 2 "set / retard" 1 "set / accelerate" 0 "no operation" ;
+VAL_ 790 S_MDASC 1 "ASC-Schnittstelle mit ALIVE-Signal" 0 "ASC-Schnittstelle ohne ALIVE-Signal" ;
+VAL_ 790 S_KL15 1 "Kl.15 ein" 0 "aus, Selbsthaltephase" ;
+VAL_ 790 S_KATH2 1 "Kat-Heizung Bank 2 ein" 0 "Kat-Heizung Bank 2 aus" ;
+VAL_ 790 S_KATH1 1 "Kat-Heizung Bank 1 ein" 0 "Kat-Heizung Bank 1 aus" ;
+VAL_ 790 Q_ASC 1 "ASC-Botschaft i.O." 0 "Fehler in ASC-Botschaft" ;
+

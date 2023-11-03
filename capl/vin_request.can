@@ -1,0 +1,24 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  message VIN vin_req;
+  msTimer generalTimer;
+}
+
+on timer generalTimer {
+  vin_req.rtr = 1;
+  vin_req.dlc = 8;
+  
+  output(vin_req);
+}
+
+on start
+{
+  setTimerCyclic(generalTimer, 10000);
+}
+
