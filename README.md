@@ -15,3 +15,10 @@ Following messages are implemented:
 
 SMG2 (CAN ID 0x43F) is implemented in CAPL, the checksum calculation is included, so gear info is displayed.
 VIN Request (CAN ID 0x610) is also implemented in CAPL, because of RTR-fields. This message will be answered by instrument cluster with correct VIN.
+
+Relevant BMW documents are in schematics folder:
+
+[Pin assignments E46 M3 up to 2004_03 in german](schematics/A2_E46_de_01.pdf)
+[Pin assignments E46 M3 as of 2004_03 in german](schematics/A2_E46_de_02.pdf)
+[Pin assignments E46 M3 up to 2004_03 in english](schematics/A2_E46_en_01.pdf)
+[Pin assignments E46 M3 as of 2004_03 in english](schematics/A2_E46_en_02.pdf)
