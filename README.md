@@ -1,12 +1,14 @@
 # E46 M3 Cluster
+
 This repo contains a Vector CANoe configuration for a BMW M46 M3 instument cluster with SMG coding.
 
 Following messages are implemented:
+
 |CAN ID|Message name|Content|
 |:---|:---|:---|
-|0x316|DME1|i.e. RPM|
-|0x329|DME2|i.e. cruise control light, engine (water) temperature, ...|
-|0x545|DME4|i.e. overheat light, oil warning, eml light, check engine light, oil temperature, rpm warn field, ...|
+|[0x316](messages/0x316.md)|DME1|i.e. RPM|
+|[0x329](messages/0x329.md)|DME2|i.e. cruise control light, engine (water) temperature, ...|
+|[0x545](messages/0x545.md)|DME4|i.e. overheat light, oil warning, eml light, check engine light, oil temperature, rpm warn field, ...|
 |0x610|VIN|VIN request, RTR flag is set|
 |0x153|ASC1|i.e. vehicle speed|
 |0x1F0|ASC2|wheel speed|
@@ -18,7 +20,7 @@ VIN Request (CAN ID 0x610) is also implemented in CAPL, because of RTR-fields. T
 
 Relevant BMW documents are in schematics folder:
 
-* [Pin assignments E46 M3 up to 2004_03 in german](schematics/A2_E46_de_01.pdf)
-* [Pin assignments E46 M3 as of 2004_03 in german](schematics/A2_E46_de_02.pdf)
-* [Pin assignments E46 M3 up to 2004_03 in english](schematics/A2_E46_en_01.pdf)
-* [Pin assignments E46 M3 as of 2004_03 in english](schematics/A2_E46_en_02.pdf)
+- [Pin assignments E46 M3 up to 2004_03 in german](schematics/A2_E46_de_01.pdf)
+- [Pin assignments E46 M3 as of 2004_03 in german](schematics/A2_E46_de_02.pdf)
+- [Pin assignments E46 M3 up to 2004_03 in english](schematics/A2_E46_en_01.pdf)
+- [Pin assignments E46 M3 as of 2004_03 in english](schematics/A2_E46_en_02.pdf)
